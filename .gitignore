@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Large training artifacts (keep out of git and OneDrive churn)
+runs/
+models/
+videos/
+tb_logs/

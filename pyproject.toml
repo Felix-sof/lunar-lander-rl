@@ -1,0 +1,31 @@
+[project]
+name = "lunar"
+version = "0.1.0"
+description = "Reinforcement learning warm-up: PPO and DQN on Gymnasium LunarLander."
+requires-python = ">=3.10"
+dependencies = [
+    "gymnasium[box2d]==1.0.0",
+    "stable-baselines3>=2.3",
+    "matplotlib",
+    "imageio[ffmpeg]",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "black", "ruff"]
+
+[tool.setuptools]
+packages = ["lunar"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

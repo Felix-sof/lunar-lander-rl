@@ -1,0 +1,3 @@
+# Pin the CUDA build of torch so pip never silently swaps it for the CPU wheel.
+# Use with: pip install -c constraints.txt <packages>
+torch==2.6.0+cu124

@@ -1,0 +1,12 @@
+# Experiment 4: reward shaping. Fuel penalty (main and side engines) scaled by 0x, 3x, 10x.
+# PPO, 1M steps, 3 seeds each. 1x is the PPO baseline (experiments/ppo.txt).
+# Evaluation always uses the ORIGINAL reward so runs stay comparable.
+--algo ppo --seed 0 --timesteps 1000000 --torch-threads 2 --fuel-main-scale 0 --fuel-side-scale 0 --run-name ppo_fuel0_s0
+--algo ppo --seed 0 --timesteps 1000000 --torch-threads 2 --fuel-main-scale 10 --fuel-side-scale 10 --run-name ppo_fuel10_s0
+--algo ppo --seed 0 --timesteps 1000000 --torch-threads 2 --fuel-main-scale 3 --fuel-side-scale 3 --run-name ppo_fuel3_s0
+--algo ppo --seed 1 --timesteps 1000000 --torch-threads 2 --fuel-main-scale 0 --fuel-side-scale 0 --run-name ppo_fuel0_s1
+--algo ppo --seed 1 --timesteps 1000000 --torch-threads 2 --fuel-main-scale 10 --fuel-side-scale 10 --run-name ppo_fuel10_s1
+--algo ppo --seed 1 --timesteps 1000000 --torch-threads 2 --fuel-main-scale 3 --fuel-side-scale 3 --run-name ppo_fuel3_s1
+--algo ppo --seed 2 --timesteps 1000000 --torch-threads 2 --fuel-main-scale 0 --fuel-side-scale 0 --run-name ppo_fuel0_s2
+--algo ppo --seed 2 --timesteps 1000000 --torch-threads 2 --fuel-main-scale 10 --fuel-side-scale 10 --run-name ppo_fuel10_s2
+--algo ppo --seed 2 --timesteps 1000000 --torch-threads 2 --fuel-main-scale 3 --fuel-side-scale 3 --run-name ppo_fuel3_s2

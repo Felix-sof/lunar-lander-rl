@@ -1,0 +1,4 @@
+# Experiment 2/3: PPO (on-policy, CPU) vs DQN (off-policy, GPU), 3 seeds each, 1M steps.
+# Run DQN all at once, PPO one at a time (each PPO run spawns 16 env worker processes):
+#   powershell -File experiments/run_parallel.ps1 experiments/dqn.txt
+#   powershell -File experiments/run_parallel.ps1 experiments/ppo.txt -MaxParallel 1

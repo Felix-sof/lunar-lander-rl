@@ -1,0 +1,4 @@
+# PPO baseline: 3 seeds, 1M steps, 16 envs (CPU). Run with -MaxParallel 1.
+--algo ppo --seed 0 --timesteps 1000000 --torch-threads 2 --run-name ppo_s0
+--algo ppo --seed 1 --timesteps 1000000 --torch-threads 2 --run-name ppo_s1
+--algo ppo --seed 2 --timesteps 1000000 --torch-threads 2 --run-name ppo_s2

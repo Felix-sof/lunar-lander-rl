@@ -1,0 +1,13 @@
+{
+  "episodes": 100.0,
+  "mean_return": -192.07689684585358,
+  "std_return": 114.44622351107303,
+  "min_return": -462.4740997217896,
+  "max_return": 8.267072039752094,
+  "mean_length": 90.03,
+  "mean_main_engine_steps": 22.34,
+  "mean_side_engine_steps": 44.84,
+  "landed_rate": 0.0,
+  "crashed_rate": 1.0,
+  "timeout_rate": 0.0
+}

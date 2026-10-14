@@ -1,0 +1,93 @@
+{
+  "runs/dqn_s0/checkpoints/final.zip": {
+    "episodes": 100.0,
+    "mean_return": -174.13784648541295,
+    "std_return": 157.35215204441607,
+    "min_return": -412.6113536859144,
+    "max_return": 253.31259296385267,
+    "mean_length": 350.67,
+    "mean_main_engine_steps": 165.04,
+    "mean_side_engine_steps": 144.12,
+    "landed_rate": 0.08,
+    "crashed_rate": 0.77,
+    "timeout_rate": 0.15
+  },
+  "runs/dqn_s1/checkpoints/final.zip": {
+    "episodes": 100.0,
+    "mean_return": -562.84170014031,
+    "std_return": 146.6444573653188,
+    "min_return": -996.5010445573491,
+    "max_return": -315.7905138123297,
+    "mean_length": 66.51,
+    "mean_main_engine_steps": 0.0,
+    "mean_side_engine_steps": 66.43,
+    "landed_rate": 0.0,
+    "crashed_rate": 1.0,
+    "timeout_rate": 0.0
+  },
+  "runs/dqn_s2/checkpoints/final.zip": {
+    "episodes": 100.0,
+    "mean_return": 150.37526687657672,
+    "std_return": 87.12796237578344,
+    "min_return": -47.02112079135576,
+    "max_return": 301.1267492484127,
+    "mean_length": 813.36,
+    "mean_main_engine_steps": 172.27,
+    "mean_side_engine_steps": 313.35,
+    "landed_rate": 0.25,
+    "crashed_rate": 0.04,
+    "timeout_rate": 0.71
+  },
+  "runs/dqn_s0/checkpoints/step_50000.zip": {
+    "episodes": 100.0,
+    "mean_return": -225.05556677694506,
+    "std_return": 41.455146974039174,
+    "min_return": -301.4925731357803,
+    "max_return": -26.30091230590385,
+    "mean_length": 326.8,
+    "mean_main_engine_steps": 197.58,
+    "mean_side_engine_steps": 125.54,
+    "landed_rate": 0.0,
+    "crashed_rate": 1.0,
+    "timeout_rate": 0.0
+  },
+  "runs/dqn_s0/checkpoints/step_100000.zip": {
+    "episodes": 100.0,
+    "mean_return": 188.90210815161768,
+    "std_return": 94.44222103250283,
+    "min_return": -139.62535096437944,
+    "max_return": 284.4254633942795,
+    "mean_length": 431.37,
+    "mean_main_engine_steps": 147.04,
+    "mean_side_engine_steps": 163.19,
+    "landed_rate": 0.74,
+    "crashed_rate": 0.1,
+    "timeout_rate": 0.16
+  },
+  "runs/dqn_s0/checkpoints/step_250000.zip": {
+    "episodes": 100.0,
+    "mean_return": 220.0756757768131,
+    "std_return": 100.53210623567786,
+    "min_return": -183.46542033319795,
+    "max_return": 315.2373864246412,
+    "mean_length": 310.82,
+    "mean_main_engine_steps": 69.8,
+    "mean_side_engine_steps": 162.21,
+    "landed_rate": 0.72,
+    "crashed_rate": 0.15,
+    "timeout_rate": 0.13
+  },
+  "runs/dqn_s0/checkpoints/step_500000.zip": {
+    "episodes": 100.0,
+    "mean_return": 258.33127302584364,
+    "std_return": 44.814054770142995,
+    "min_return": 42.020956866469476,
+    "max_return": 308.85361267211266,
+    "mean_length": 255.41,
+    "mean_main_engine_steps": 116.45,
+    "mean_side_engine_steps": 53.72,
+    "landed_rate": 0.96,
+    "crashed_rate": 0.04,
+    "timeout_rate": 0.0
+  }
+}

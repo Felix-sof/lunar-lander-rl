@@ -1,0 +1,80 @@
+{
+  "runs/ppo_s0/checkpoints/step_10000.zip": {
+    "episodes": 100.0,
+    "mean_return": -310.5798472845561,
+    "std_return": 127.07104038342753,
+    "min_return": -816.0874489262249,
+    "max_return": -81.52347181319331,
+    "mean_length": 138.64,
+    "mean_main_engine_steps": 79.88,
+    "mean_side_engine_steps": 6.28,
+    "landed_rate": 0.0,
+    "crashed_rate": 1.0,
+    "timeout_rate": 0.0
+  },
+  "runs/ppo_s0/checkpoints/step_50000.zip": {
+    "episodes": 100.0,
+    "mean_return": -7.895509190542921,
+    "std_return": 65.63294998088638,
+    "min_return": -233.6419742884364,
+    "max_return": 201.0366117836803,
+    "mean_length": 473.23,
+    "mean_main_engine_steps": 189.54,
+    "mean_side_engine_steps": 266.77,
+    "landed_rate": 0.04,
+    "crashed_rate": 0.64,
+    "timeout_rate": 0.32
+  },
+  "runs/ppo_s0/checkpoints/step_100000.zip": {
+    "episodes": 100.0,
+    "mean_return": -174.41375746674746,
+    "std_return": 72.01973916130359,
+    "min_return": -252.87566623581566,
+    "max_return": 234.3199998980126,
+    "mean_length": 549.88,
+    "mean_main_engine_steps": 312.89,
+    "mean_side_engine_steps": 225.63,
+    "landed_rate": 0.01,
+    "crashed_rate": 0.93,
+    "timeout_rate": 0.06
+  },
+  "runs/ppo_s0/checkpoints/step_250000.zip": {
+    "episodes": 100.0,
+    "mean_return": -149.08009418447924,
+    "std_return": 47.056872011267274,
+    "min_return": -273.665918209028,
+    "max_return": -42.242517085935084,
+    "mean_length": 469.27,
+    "mean_main_engine_steps": 266.9,
+    "mean_side_engine_steps": 177.01,
+    "landed_rate": 0.0,
+    "crashed_rate": 0.97,
+    "timeout_rate": 0.03
+  },
+  "runs/ppo_s0/checkpoints/step_500000.zip": {
+    "episodes": 100.0,
+    "mean_return": 79.49594232873724,
+    "std_return": 138.02616695475805,
+    "min_return": -201.54432340490575,
+    "max_return": 236.4574039381626,
+    "mean_length": 591.78,
+    "mean_main_engine_steps": 279.77,
+    "mean_side_engine_steps": 217.99,
+    "landed_rate": 0.63,
+    "crashed_rate": 0.28,
+    "timeout_rate": 0.09
+  },
+  "runs/ppo_s0/checkpoints/final.zip": {
+    "episodes": 100.0,
+    "mean_return": 262.6957291101753,
+    "std_return": 20.113266767257997,
+    "min_return": 214.70376523894947,
+    "max_return": 305.0896527588996,
+    "mean_length": 277.06,
+    "mean_main_engine_steps": 129.75,
+    "mean_side_engine_steps": 90.81,
+    "landed_rate": 1.0,
+    "crashed_rate": 0.0,
+    "timeout_rate": 0.0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "runs/ppo_fuel0_s2/checkpoints/final.zip": {
+    "episodes": 100.0,
+    "mean_return": 190.59931059671828,
+    "std_return": 38.76296776200041,
+    "min_return": 63.33103013389132,
+    "max_return": 241.07368463288836,
+    "mean_length": 648.1,
+    "mean_main_engine_steps": 324.17,
+    "mean_side_engine_steps": 239.93,
+    "landed_rate": 0.9,
+    "crashed_rate": 0.0,
+    "timeout_rate": 0.1
+  },
+  "runs/ppo_fuel3_s2/checkpoints/final.zip": {
+    "episodes": 100.0,
+    "mean_return": 267.1544334284297,
+    "std_return": 22.67036596881624,
+    "min_return": 157.22001811324287,
+    "max_return": 313.68674635941863,
+    "mean_length": 260.05,
+    "mean_main_engine_steps": 107.03,
+    "mean_side_engine_steps": 54.99,
+    "landed_rate": 0.99,
+    "crashed_rate": 0.0,
+    "timeout_rate": 0.01
+  },
+  "runs/ppo_fuel10_s2/checkpoints/final.zip": {
+    "episodes": 100.0,
+    "mean_return": -37.42210020993781,
+    "std_return": 19.104393705831402,
+    "min_return": -88.41569609725698,
+    "max_return": 9.089553115327021,
+    "mean_length": 75.96,
+    "mean_main_engine_steps": 23.43,
+    "mean_side_engine_steps": 3.06,
+    "landed_rate": 0.0,
+    "crashed_rate": 1.0,
+    "timeout_rate": 0.0
+  }
+}

@@ -4,6 +4,20 @@ A small, fast-feedback reinforcement learning project: train an agent to land th
 Gymnasium `LunarLander-v3` rocket softly, compare PPO (on-policy) with DQN (off-policy),
 and study the effect of reward shaping. Results are logged in [EXPERIMENTS.md](EXPERIMENTS.md).
 
+## Results
+
+Full write-up with all numbers: [EXPERIMENTS.md](EXPERIMENTS.md). Mean return over 100
+evaluation episodes, averaged over 3 seeds (solved = 200):
+
+| agent | mean return | seeds >= 200 |
+|---|---|---|
+| random | -192.1 | - |
+| PPO, 1M steps | **254.9** | 3 / 3 |
+| DQN, 1M steps (final model) | -195.5 | 0 / 3 (all three collapsed after peaking at 189-258) |
+| PPO, fuel penalty 0x / 3x / 10x | 206.2 / **267.9** / -33.0 | 1 / 3 / 0 of 3 |
+
+![PPO vs DQN](figures/ppo_vs_dqn.png)
+
 ## Setup (Windows, Python 3.11)
 
 Tested with Python 3.11, gymnasium 1.0.0, stable-baselines3 2.8.0, torch 2.6.0+cu124.
@@ -59,6 +73,7 @@ scripts/        command-line entry points (run with python -m scripts.<name>)
 experiments/    job files and a PowerShell launcher for the experiment runs
 tests/          pytest suite
 figures/        generated plots (committed)
+results/        100-episode evaluation summaries as JSON (committed)
 runs/, videos/  training artifacts (git-ignored)
 ```
 

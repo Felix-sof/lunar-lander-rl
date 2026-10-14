@@ -90,7 +90,8 @@ def main() -> None:
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     if args.out.suffix == ".gif":
-        imageio.mimsave(args.out, frames[::2], duration=2 / FPS, loop=0)
+        # Every second frame keeps GIFs small; imageio's pillow backend takes milliseconds.
+        imageio.mimsave(args.out, frames[::2], duration=2 * 1000 / FPS, loop=0)
     else:
         imageio.mimsave(args.out, frames, fps=FPS, macro_block_size=8)
     print(f"saved {args.out} ({len(frames)} frames)")

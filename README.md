@@ -1,22 +1,67 @@
 # LunarLander RL warm-up
 
-A small, fast-feedback reinforcement learning project: train an agent to land the
-Gymnasium `LunarLander-v3` rocket softly, compare PPO (on-policy) with DQN (off-policy),
-and study the effect of reward shaping. Results are logged in [EXPERIMENTS.md](EXPERIMENTS.md).
+Teaching an agent to land a rocket softly with reinforcement learning (Gymnasium
+`LunarLander-v3`, Stable-Baselines3): PPO vs DQN, and what happens when you change the
+reward. 15 training runs, 3 seeds per setting, every number evaluated over 100 episodes.
+The full lab notebook with all numbers and lessons learned is in [EXPERIMENTS.md](EXPERIMENTS.md).
 
-## Results
+![The same PPO agent after 10k, 50k, 250k, 500k and 1M training steps](media/ppo_progress.gif)
 
-Full write-up with all numbers: [EXPERIMENTS.md](EXPERIMENTS.md). Mean return over 100
-evaluation episodes, averaged over 3 seeds (solved = 200):
+*One PPO agent at five points in training, same starting state. 10k: untrained, flies off.
+50k: has learned to hover and never lands. 250k: tries to descend and crashes. 500k: first
+landings. 1M: lands every time (100/100 evaluation episodes).*
 
-| agent | mean return | seeds >= 200 |
+![Summary of all agents](figures/summary.png)
+
+## Findings
+
+### 1. PPO solves it on every seed, but learning is not a straight line
+
+All three PPO seeds pass the "solved" threshold of 200 (262.7 / 243.3 / 258.8 over 100
+episodes). On the way, the agent first learns to **hover** (a safe local optimum: no crash
+penalty) and gets *worse* for a while before it learns to land. Looking at the return
+curve alone, 50k steps (-8) looks better than 250k (-149). Watching the agent shows that
+50k is a dead end.
+
+![PPO training curves](figures/ppo_baseline.png)
+
+### 2. DQN learns faster, then forgets
+
+![PPO vs DQN landings](media/ppo_vs_dqn.gif)
+
+*Left: PPO at 1M steps. Middle: DQN at its best checkpoint (500k). Right: the same DQN run
+at 1M steps.*
+
+DQN (off-policy, replay buffer) is far more sample-efficient: at 250k steps its seeds score
++189 to +220 while PPO is still at -149. But all three DQN seeds **collapsed** later (one
+reached -1079 at 500k, another ended up never firing its main engine). The final DQN models
+average -196, no better than random. PPO's clipped on-policy updates never lost what they
+had learned. PPO also needed only 7-15 min per 1M steps on CPU, while DQN took ~2 h on GPU.
+
+![PPO vs DQN curves](figures/ppo_vs_dqn.png)
+
+### 3. The agent optimizes what you reward, not what you mean
+
+![Fuel penalty 0x, 1x, 3x, 10x](media/fuel_shaping.gif)
+
+*Same state, four agents trained with different fuel prices. Free fuel: slow, still
+hovering. 1x and 3x: clean landings. 10x: crashes on purpose.*
+
+| fuel penalty | mean return (original reward) | behaviour |
 |---|---|---|
-| random | -192.1 | - |
-| PPO, 1M steps | **254.9** | 3 / 3 |
-| DQN, 1M steps (final model) | -195.5 | 0 / 3 (all three collapsed after peaking at 189-258) |
-| PPO, fuel penalty 0x / 3x / 10x | 206.2 / **267.9** / -33.0 | 1 / 3 / 0 of 3 |
+| 0x (free) | 206.2 | lands slowly, ~1.8x main-engine use, up to 10% of episodes hover until timeout |
+| 1x (original) | 254.9 | efficient landings |
+| **3x** | **267.9** | best agent *and* fastest learner |
+| 10x | -33.0 | **crashes deliberately** in 100% of episodes: a crash (-100) is cheaper than the fuel for a landing (~-360) |
 
-![PPO vs DQN](figures/ppo_vs_dqn.png)
+All variants are scored with the *original* reward. Shaping the reward in the right
+direction (3x) beat the original reward on its own metric. Pushing the same knob too far
+(10x) made the agent choose to crash.
+
+![Fuel shaping curves](figures/fuel_shaping.png)
+
+Full-length videos (3 starting states each): [ppo_progress.mp4](media/ppo_progress.mp4),
+[ppo_vs_dqn.mp4](media/ppo_vs_dqn.mp4), [fuel_shaping.mp4](media/fuel_shaping.mp4).
 
 ## Setup (Windows, Python 3.11)
 
@@ -74,6 +119,7 @@ experiments/    job files and a PowerShell launcher for the experiment runs
 tests/          pytest suite
 figures/        generated plots (committed)
 results/        100-episode evaluation summaries as JSON (committed)
+media/          GIFs and MP4s used in this README (committed)
 runs/, videos/  training artifacts (git-ignored)
 ```
 
@@ -99,6 +145,9 @@ python -m scripts.evaluate runs/ppo_s0 runs/dqn_s0
 
 # Plot curves (seed mean + min-max band)
 python -m scripts.plot --group "PPO=runs/ppo_s*" --group "DQN=runs/dqn_s*" --out figures/ppo_vs_dqn.png --wall-time
+
+# Summary bar chart from results/*.json
+python -m scripts.plot_summary --out figures/summary.png
 
 # Watch live
 python -m scripts.watch runs/ppo_s0
